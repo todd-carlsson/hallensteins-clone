@@ -1,0 +1,85 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.custom-loader {
+    width: calc(160px / 0.707);
+    height: 28px;
+    border-radius: 6px;
+    background: repeating-linear-gradient(-45deg, #000000 0 30px, #0000 0 40px) left/200% 100%;
+    animation: i3 2s infinite linear;
+    position: absolute;
+    opacity: 0.8;
+    top: 50vh;
+    right: calc(50vw - 80px);
+}
+
+@keyframes i3 {
+    100% {
+        background-position: right
+    }
+}
+
+.product-tag {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    z-index: 20;
+    cursor: auto;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    width: fit-content;
+    padding: 0 0.8rem;
+    height: 35px;
+    text-transform: uppercase;
+}
+
+ul.breadcrumb-navigation {
+    position: absolute;
+    height: 3.5rem;
+    top: -3.5rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 0.1rem;
+    padding-left: 1.5rem;
+}
+
+li.breadcrumb-item {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    font-size: 0.725rem;
+    letter-spacing: 0.025px;
+    text-transform: capitalize;
+    color: #000;
+    font-weight: 500;
+}
+
+li.current-item {
+    color: #999;
+    cursor: default;
+}

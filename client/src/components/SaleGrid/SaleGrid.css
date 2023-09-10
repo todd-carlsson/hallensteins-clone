@@ -1,0 +1,35 @@
+section.saleGrid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.saleGrid-wrapper {
+    display: grid;
+    max-width: 1500px;
+    width: 100%;
+    /* margin: 2rem; */
+}
+
+.smallGrid {
+    grid-template-columns: auto auto auto;
+    justify-items: start;
+    width: 100vw;
+    align-items: start;
+}
+
+.largeGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.smallGrid img {
+    height: 60%;
+}
+
+.largeGrid img {
+    height: 40%;
+}

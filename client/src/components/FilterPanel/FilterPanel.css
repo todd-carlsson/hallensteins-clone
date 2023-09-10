@@ -1,0 +1,335 @@
+.filter-panel {
+    width: 100%;
+    max-width: 260px;
+    position: relative;
+}
+
+.filter-panel_button {
+    position: relative;
+    z-index: 10;
+    border: none;
+    background: #fff;
+    border: 1px solid #000;
+    width: fit-content;
+    max-width: 260px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.input-checked {
+    width: 10px;
+    height: 10px;
+    z-index: 100;
+    top: 20px;
+    left: 10px;
+    background-color: #1EBA54;
+    position: absolute;
+    border-radius: 50%;
+}
+
+span.filter-panel_type {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0.7rem;
+}
+
+.filter-item {
+    flex-direction: column;
+    position: relative;
+    text-transform: capitalize;
+    width: max-content;
+    min-width: calc(100% - 3em - 1.6px);
+}
+
+.form-check-input {
+    float: left;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.filter-item__selected {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: .75rem 0;
+}
+
+button.filter-item__remove {
+    display: flex;
+    padding: 0;
+    border: none;
+    margin-left: 8px;
+    color: #000;
+    font-weight: 500;
+    font-size: 0.75rem;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* .filter-item__count {
+    font-size: 0.9rem;
+    font-weight: 600;
+} */
+
+.form-check {
+    position: absolute;
+    z-index: 3;
+    top: 49px;
+    background-color: #fff;
+    color: #212529;
+    display: block;
+    min-height: 1.5rem;
+    max-height: 100%;
+    padding: 1.5em;
+    padding-top: 0;
+    margin-bottom: .125rem;
+    border: 1px solid #000;
+    overflow: auto;
+    max-height: 320px;
+}
+
+
+.form-check label {
+    display: flex;
+    align-items: center;
+    margin: 0.8rem 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+
+
+
+.css-checkbox-regular,
+.css-checkbox-color {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 0px;
+    width: 0px;
+    margin: -1px;
+    border: 0;
+}
+
+
+.css-checkbox-regular+label,
+.css-checkbox-color+label {
+    position: relative;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.css-checkbox-regular+label::before,
+.css-checkbox-color+label::before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    left: 2.5px;
+    margin-right: 12px;
+    width: 17px;
+    height: 17px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.css-checkbox-regular+label::after,
+.css-checkbox-color+label::after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    border-radius: 3px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(233, 233, 233);
+    box-shadow: none;
+    transition: border-color 0.125s ease-in-out;
+}
+
+.css-checkbox-color+label::after {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+}
+
+
+.css-checkbox-regular:checked+label::after,
+.css-checkbox-color:checked+label::after {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+");
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: center center;
+    border-color: rgb(0, 0, 0);
+    background-color: #000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.css-checkbox-color:checked+label::after {
+    background-color: transparent;
+}
+
+
+
+
+/* Checkbox Colors */
+
+.black+label::before {
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+}
+
+
+.blue+label::before {
+    border-radius: 50%;
+    background-color: rgb(56, 145, 194);
+}
+
+
+.brown+label::before {
+    border-radius: 50%;
+    background-color: rgb(115, 58, 2);
+}
+
+
+.charcoal+label::before {
+    border-radius: 50%;
+    background-color: rgb(54, 69, 79);
+}
+
+
+.dark_blue+label::before {
+    border-radius: 50%;
+    background-color: rgb(0, 42, 110);
+}
+
+
+.gold+label::before {
+    border-radius: 50%;
+    background-color: rgb(255, 215, 0);
+}
+
+
+.green+label::before {
+    border-radius: 50%;
+    background-color: rgb(1, 128, 50);
+}
+
+
+.grey+label::before {
+    border-radius: 50%;
+    background-color: rgb(161, 161, 161);
+}
+
+
+.khaki+label::before {
+    border-radius: 50%;
+    background-color: rgb(138, 134, 93);
+}
+
+
+.light_blue+label::before {
+    border-radius: 50%;
+    background-color: rgb(173, 216, 230);
+}
+
+
+.light_grey+label::before {
+    border-radius: 50%;
+    background-color: rgb(211, 211, 211);
+}
+
+
+.multi+label::before {
+    border-radius: 50%;
+    background-color: rgb(0, 230, 179);
+}
+
+.navy+label::before {
+    border-radius: 50%;
+    background-color: rgb(0, 0, 128);
+}
+
+.orange+label::before {
+    border-radius: 50%;
+    background-color: rgb(252, 147, 50);
+}
+
+
+.pink+label::before {
+    border-radius: 50%;
+    background-color: rgb(255, 133, 184);
+}
+
+
+.purple+label::before {
+    border-radius: 50%;
+    background-color: rgb(170, 77, 196);
+}
+
+
+.red+label::before {
+    border-radius: 50%;
+    background-color: rgb(250, 52, 52);
+}
+
+
+.silver+label::before {
+    border-radius: 50%;
+    background-color: rgb(192, 192, 192);
+}
+
+
+.stone+label::before {
+    border-radius: 50%;
+    background-color: rgb(183, 176, 156);
+}
+
+
+.tan+label::before {
+    border-radius: 50%;
+    background-color: rgb(210, 180, 140);
+}
+
+
+.white+label::before {
+    border-radius: 50%;
+}
+
+.white:checked+label::after {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(205, 205, 205);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+")
+}
+
+.yellow+label::before {
+    border-radius: 50%;
+    background-color: rgb(255, 231, 54);
+}
