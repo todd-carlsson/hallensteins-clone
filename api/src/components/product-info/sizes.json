@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_product_info_sizes",
+  "info": {
+    "displayName": "TopSizes",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "XS": {
+      "type": "boolean"
+    },
+    "S": {
+      "type": "boolean"
+    },
+    "M": {
+      "type": "boolean"
+    },
+    "L": {
+      "type": "boolean"
+    },
+    "XL": {
+      "type": "boolean"
+    },
+    "XXL": {
+      "type": "boolean"
+    },
+    "XXXL": {
+      "type": "boolean"
+    },
+    "XXXXL": {
+      "type": "boolean"
+    }
+  }
+}

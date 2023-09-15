@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_product_info_shirts_categories",
+  "info": {
+    "displayName": "shirtsCategory",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Dress_Shirts": {
+      "type": "boolean"
+    },
+    "Linen_Shirts": {
+      "type": "boolean"
+    },
+    "Long_Sleeve_Shirts": {
+      "type": "boolean"
+    },
+    "Printed_Shirts": {
+      "type": "boolean"
+    },
+    "Short_Sleeve_Shirts": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_product_info_bottom_sizes",
+  "info": {
+    "displayName": "BottomSizes",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "twentyEight": {
+      "type": "boolean"
+    },
+    "thirty": {
+      "type": "boolean"
+    },
+    "thirtyTwo": {
+      "type": "boolean"
+    },
+    "thirtyFour": {
+      "type": "boolean"
+    },
+    "thirtySix": {
+      "type": "boolean"
+    },
+    "thirtyEight": {
+      "type": "boolean"
+    },
+    "forty": {
+      "type": "boolean"
+    },
+    "fortyTwo": {
+      "type": "boolean"
+    }
+  }
+}

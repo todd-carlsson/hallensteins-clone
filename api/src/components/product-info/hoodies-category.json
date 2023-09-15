@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_product_info_hoodies_categories",
+  "info": {
+    "displayName": "hoodiesCategory",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Crew_Sweatshirts": {
+      "type": "boolean"
+    },
+    "Oversized_Hoodies_and_Sweats": {
+      "type": "boolean"
+    },
+    "Pullover_Hoodies": {
+      "type": "boolean"
+    },
+    "Zip_Up_Sweats": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_product_info_jeans_categories",
+  "info": {
+    "displayName": "jeansCategory",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Baggy_Jeans": {
+      "type": "boolean"
+    },
+    "Black_Jeans": {
+      "type": "boolean"
+    },
+    "Dad_Jeans": {
+      "type": "boolean"
+    },
+    "Jogger_Jeans": {
+      "type": "boolean"
+    },
+    "Skinny_Jeans": {
+      "type": "boolean"
+    },
+    "Slim_Jeans": {
+      "type": "boolean"
+    },
+    "Tapered_Jeans": {
+      "type": "boolean"
+    },
+    "Wide_Jeans": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sliders",
+  "info": {
+    "singularName": "slider",
+    "pluralName": "sliders",
+    "displayName": "Slider",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "small_img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "btnColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "subCategory": {
+      "type": "dynamiczone",
+      "components": [
+        "product-info.category",
+        "product-info.hoodies-category",
+        "product-info.jeans-category",
+        "product-info.pants-category",
+        "product-info.shirts-category"
+      ]
+    },
+    "offer": {
+      "type": "enumeration",
+      "enum": [
+        "basic-tees-singlets-2-for-35",
+        "premium-tees-2-for-50",
+        "classic-business-shirts-2-for-79",
+        "organic-hoodies-sweats-2-for-69",
+        "graphic-hoodies-2-for-79",
+        "premium-business-shirts-2-for-99",
+        "denim-chinos-2-for-99",
+        "baggy-cargos-2-for-99"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "clothing",
+        "offers"
+      ],
+      "required": true,
+      "default": "clothing"
+    }
+  }
+}

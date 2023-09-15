@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_product_info_categories",
+  "info": {
+    "displayName": "t-shirtsCategory",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Box_Fit_T_Shirts": {
+      "type": "boolean"
+    },
+    "Graphic_Tees": {
+      "type": "boolean"
+    },
+    "Licensed_T_Shirts": {
+      "type": "boolean"
+    },
+    "Long_Sleeve_Tees": {
+      "type": "boolean"
+    },
+    "Plain_Tees": {
+      "type": "boolean"
+    },
+    "Short_Sleeve_Tees": {
+      "type": "boolean"
+    },
+    "Singlets_and_Tanks": {
+      "type": "boolean"
+    }
+  }
+}

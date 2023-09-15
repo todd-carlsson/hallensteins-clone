@@ -1,0 +1,138 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "about": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "uid"
+    },
+    "mainImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "blue",
+        "brown",
+        "charcoal",
+        "dark_blue",
+        "gold",
+        "green",
+        "grey",
+        "khaki",
+        "light_blue",
+        "light_grey",
+        "multi",
+        "navy",
+        "orange",
+        "pink",
+        "purple",
+        "red",
+        "silver",
+        "stone",
+        "tan",
+        "white",
+        "yellow"
+      ]
+    },
+    "mainCategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "subCategory": {
+      "type": "dynamiczone",
+      "components": [
+        "product-info.category",
+        "product-info.hoodies-category",
+        "product-info.jeans-category",
+        "product-info.pants-category",
+        "product-info.shirts-category"
+      ],
+      "max": 1,
+      "required": true
+    },
+    "offers": {
+      "type": "enumeration",
+      "enum": [
+        "basic-tees-singlets-2-for-35",
+        "premium-tees-2-for-50",
+        "classic-business-shirts-2-for-79",
+        "organic-hoodies-sweats-2-for-69",
+        "graphic-hoodies-2-for-79",
+        "premium-business-shirts-2-for-99",
+        "denim-chinos-2-for-99",
+        "baggy-cargos-2-for-99"
+      ]
+    },
+    "salePrice": {
+      "type": "decimal"
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "Organic",
+        "New",
+        "Coming Soon"
+      ]
+    },
+    "sizesAvailable": {
+      "type": "dynamiczone",
+      "components": [
+        "product-info.sizes",
+        "product-info.bottom-sizes",
+        "product-info.shoe-sizes"
+      ],
+      "required": true,
+      "max": 1,
+      "min": 1
+    },
+    "sub_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sub-category.sub-category",
+      "mappedBy": "products"
+    }
+  }
+}
