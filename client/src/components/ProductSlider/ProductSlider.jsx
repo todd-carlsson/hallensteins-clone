@@ -24,7 +24,7 @@ function ProductSlider(props) {
 
         <div className='product-wrapper'>
 
-            <Swiper allowTouchMove={props.allowTouchMove} slidesPerView={1} spaceBetween={0}>
+            <Swiper data-test={props.dataTest} allowTouchMove={props.allowTouchMove} slidesPerView={1} spaceBetween={0}>
                 {generateTag(props.price, props.salePrice, props.tag)}
 
                 <SwiperSlide

@@ -294,9 +294,10 @@ function Clothing() {
                 className='product-grid'>
                 {error ? "Something went wrong" :
                     (loading ? <div className="custom-loader" /> :
-                        data?.slice(0, !paginationCount ? totalAmountItems : paginationCount).map(item => (
+                        data?.slice(0, !paginationCount ? totalAmountItems : paginationCount).map((item, i) => (
                             <ProductSlider
                                 key={item.id}
+                                dataTest={`product-slider-${i}`}
                                 allowTouchMove={true}
                                 url={item.attributes.url}
                                 product={item}
