@@ -70,6 +70,7 @@ function CartItem(props) {
                         defaultValue={sizesOptions.filter(item => item.value === getSizeNumber(props.size).toString())}
                         theme={theme} />
                     <Select
+                        aria-label={props.dataTest}
                         styles={selectStylesSmall}
                         options={qtysOptions}
                         // menuIsOpen
@@ -79,7 +80,7 @@ function CartItem(props) {
                         theme={theme} />
                 </div>
 
-                <span className='delete-cart-item'>
+                <span data-test='delete-cart-item-button' className='delete-cart-item'>
                     <RxCross2 onClick={() => removeFromCart(props.id, props.size)} size={20} />
                 </span>
             </div>

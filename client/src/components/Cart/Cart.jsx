@@ -59,7 +59,7 @@ function Cart() {
                 animate={toggleCart ? "visible" : "hidden"}
                 initial="hidden"
             >
-                <div className="cart-top" onClick={closeCart}>
+                <div data-test='cart-top-close' className="cart-top" onClick={closeCart}>
                     <MdOutlineKeyboardArrowLeft size={20} />
                     Your Cart
                 </div>
@@ -74,10 +74,11 @@ function Cart() {
                     </div>
 
                     : <>
-                    {cartItems.map(item => (
+                    {cartItems.map((item, i) => (
                         <CartItem
                             key={uuidv4()}
                             id={item.id}
+                            dataTest={`cart-qty-button-${i}`}
                             product={item}
                             name={item.attributes.name}
                             url={item.attributes.url}

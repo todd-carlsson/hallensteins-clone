@@ -32,7 +32,7 @@ function Navbar() {
                         style={{ cursor: 'pointer' }}
                         onClick={closeCart}
                         color='black' />
-                    {totalItems ? <span onClick={closeCart} className="cart-qty">{totalItems}</span> : ''}
+                    {totalItems ? <span data-test='cart-qty-icon' onClick={closeCart} className="cart-qty">{totalItems}</span> : ''}
                 </div>
             </div>
             <Cart />

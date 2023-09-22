@@ -174,6 +174,7 @@ function Product() {
                                                 { ...data?.[index], size: getSizeNumber(firstSize.value), qty: 1 }
                                             )
                                     }}
+                                        data-test='add-to-bag-button'
                                         className="add-to-bag">Add to Bag</button>
                                     <ReactMarkdown className='product-about' children={data?.[index]?.attributes.about} />
                                 </div>
