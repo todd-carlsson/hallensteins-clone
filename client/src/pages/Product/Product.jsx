@@ -57,7 +57,7 @@ function Product() {
         })
         setSizeOptions(options)
         setFirstSize(options.filter(item => !item.isDisabled)[0])
-        console.log(firstSize)
+        setSelectedSize(options.filter(item => !item.isDisabled)[0]?.value)
     }
 
     useEffect(() => {
@@ -71,8 +71,10 @@ function Product() {
 
 
     const [selectedSize, setSelectedSize] = useState(null)
+    
     function changeSelectedSize(event) {
         setSelectedSize(event.value)
+        setFirstSize(sizesOptions.filter(item => item.value === event.value))
     }
 
 
