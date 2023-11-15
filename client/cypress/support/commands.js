@@ -28,3 +28,7 @@ import "cypress-real-events";
 Cypress.Commands.add('getDataTest', (dataTestSelector) => {
     return cy.get(`[data-test="${dataTestSelector}"]`)
 })
+
+Cypress.Commands.add('getAriaLabel', (ariaLabelSelector) => {
+    return cy.get(`[aria-label="${ariaLabelSelector}"]`)
+})
