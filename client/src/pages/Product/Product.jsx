@@ -28,15 +28,13 @@ function Product() {
     const { data, loading, error } = useFetch(createUrl())
 
     const [index, setIndex] = useState()
+    const [sizesOptions, setSizeOptions] = useState([])
 
     function getCurrentIndex() {
         data?.map((item, i) => {
             if (item?.attributes?.url === categoryUrl) setIndex(i)
         })
     }
-    useEffect(() => {
-        getCurrentIndex()
-    }, [data])
 
 
     const sizes = []
@@ -45,15 +43,30 @@ function Product() {
             sizes.push(key)
         }
     }
-    let sizesOptions = []
-    sizes.map(item => {
-        if (data?.[index]?.attributes.sizesAvailable[0][item]) {
-            sizesOptions.push({ value: `${getSizeNumber(item)}`, label: `${getSizeNumber(item)}` })
-        }
-        else if (!data?.[index]?.attributes.sizesAvailable[0][item]) {
-            sizesOptions.push({ value: `${getSizeNumber(item)}`, label: `${getSizeNumber(item)} --- OUT OF STOCK`, isDisabled: true })
-        }
-    })
+
+    function getSizeOptions() {
+        let options = []
+        sizes.map(item => {
+            if (data?.[index]?.attributes.sizesAvailable[0][item]) {
+                options.push({ value: `${getSizeNumber(item)}`, label: `${getSizeNumber(item)}` })
+            }
+            else if (!data?.[index]?.attributes.sizesAvailable[0][item]) {
+                options.push({ value: `${getSizeNumber(item)}`, label: `${getSizeNumber(item)} --- OUT OF STOCK`, isDisabled: true })
+            }
+        })
+        setSizeOptions(options)
+    }
+
+    useEffect(() => {
+        getCurrentIndex()
+        getSizeOptions()
+    }, [data])
+
+    useEffect(() => {
+        getSizeOptions()
+    }, [index])
+
+
     const firstSize = sizesOptions.filter(item => !item.isDisabled)[0]
 
 
@@ -159,13 +172,16 @@ function Product() {
                                             </div>
                                         </>
                                     }
-                                    <Select
-                                        styles={selectStylesLarge}
-                                        options={sizesOptions}
-                                        defaultValue={firstSize}
-                                        theme={theme}
-                                        onChange={(e) => changeSelectedSize(e)}
-                                    />
+                                    {
+                                        sizesOptions.length > 0 &&
+                                        <Select
+                                            styles={selectStylesLarge}
+                                            options={sizesOptions}
+                                            defaultValue={firstSize}
+                                            theme={theme}
+                                            onChange={(e) => changeSelectedSize(e)}
+                                        />
+                                    }
 
                                     <button onClick={() => {
                                         setTimeout(() => closeCart(), 400),
