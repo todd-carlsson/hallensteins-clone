@@ -29,6 +29,7 @@ function Product() {
 
     const [index, setIndex] = useState()
     const [sizesOptions, setSizeOptions] = useState([])
+    const [firstSize, setFirstSize] = useState(sizesOptions.filter(item => !item.isDisabled)[0])
 
     function getCurrentIndex() {
         data?.map((item, i) => {
@@ -55,6 +56,8 @@ function Product() {
             }
         })
         setSizeOptions(options)
+        setFirstSize(options.filter(item => !item.isDisabled)[0])
+        console.log(firstSize)
     }
 
     useEffect(() => {
@@ -65,9 +68,6 @@ function Product() {
     useEffect(() => {
         getSizeOptions()
     }, [index])
-
-
-    const firstSize = sizesOptions.filter(item => !item.isDisabled)[0]
 
 
     const [selectedSize, setSelectedSize] = useState(null)
@@ -173,11 +173,11 @@ function Product() {
                                         </>
                                     }
                                     {
-                                        sizesOptions.length > 0 &&
+                                        sizesOptions.length > 0 && firstSize &&
                                         <Select
                                             styles={selectStylesLarge}
                                             options={sizesOptions}
-                                            defaultValue={firstSize}
+                                            value={firstSize}
                                             theme={theme}
                                             onChange={(e) => changeSelectedSize(e)}
                                         />
