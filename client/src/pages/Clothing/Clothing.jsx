@@ -14,6 +14,9 @@ function Clothing() {
 
     const categoryId = useParams().id
 
+    const [gridTemplateMinWidth, setGridTemplateMinWidth] = useState(window.innerWidth > 870)
+    console.log(gridTemplateMinWidth)
+
     //Filter Panel Selected arrays
     const [selectedSubCats, setSelectedSubCats] = useState([]);
     const [selectedPriceRanges, setSelectedPriceRanges] = useState([])
@@ -42,6 +45,15 @@ function Clothing() {
         setActiveIndex(null)
         setPaginationCount(9)
     }, [categoryId])
+
+    useEffect(() => {
+        function handleResize() {
+            setGridTemplateMinWidth(window.innerWidth > 870)
+        }
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+        }, [window])
 
 
     const priceListArr = []
@@ -123,7 +135,7 @@ function Clothing() {
 
 
     //For selecting filters
-    function handleSubCategoryChange (e) {
+    function handleSubCategoryChange(e) {
         const value = e.target.value;
         const isChecked = e.target.checked;
         setSelectedSubCats(
@@ -131,7 +143,7 @@ function Clothing() {
                 : selectedSubCats.filter((item) => item !== value))
     };
 
-    function handleColorChange (e) {
+    function handleColorChange(e) {
         const value = e.target.value;
         const isChecked = e.target.checked;
         setSelectedColor(
@@ -139,7 +151,7 @@ function Clothing() {
                 : selectedColor.filter((item) => item !== value))
     };
 
-    function handlePriceRangeChange (e, min, max, name) {
+    function handlePriceRangeChange(e, min, max, name) {
         const isChecked = e.target.checked
         setSelectedPriceRanges(
             isChecked ? [...selectedPriceRanges, { min: min, max: max, name: name }]
@@ -149,9 +161,9 @@ function Clothing() {
 
     //Display the selected sort option correctly to the user
     function displaySortOption() {
-        if(sortOption === 'lowest') return 'Price (Lowest)'
-        else if(sortOption === 'highest') return 'Price (Highest)'
-        else if(sortOption === 'alphabetical') return 'A - Z'
+        if (sortOption === 'lowest') return 'Price (Lowest)'
+        else if (sortOption === 'highest') return 'Price (Highest)'
+        else if (sortOption === 'alphabetical') return 'A - Z'
         else return sortOption
     }
 
@@ -178,22 +190,34 @@ function Clothing() {
                             className="category-grid-toggle">
                             <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
                             <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
-                            <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
-                            <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
+                            {
+                                window.innerWidth > 870 ?
+                                    <>
+                                        <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
+                                        <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
+                                    </>
+                                    : ''
+                            }
                         </button>
                         <button
                             onClick={() => setCategoryGrid('large')}
                             className="category-grid-toggle">
                             <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
-                            <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
-                            <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
+                            {
+                                window.innerWidth > 870 ?
+                                    <>
+                                        <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
+                                        <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
+                                    </>
+                                    : ''
+                            }
                         </button>
                     </div>
                     <div className="category-sort">
                         <button onClick={() => setIsSortOptionsOpen(!isSortOptionsOpen)} className="category-sort-button">
                             Sort By <span className="category-sort-selected">
                                 {displaySortOption()}
-                                </span>
+                            </span>
                             {isSortOptionsOpen ? <MdKeyboardArrowUp size={23} /> : <MdKeyboardArrowDown size={23} />}
                         </button>
                         <div
@@ -290,7 +314,15 @@ function Clothing() {
             }
 
             <div
-                style={{ gridTemplateColumns: categoryGrid === 'large' ? '1fr 1fr 1fr' : '1fr 1fr 1fr 1fr' }}
+                style={{
+                    gridTemplateColumns: categoryGrid === 'large' ?
+                        window.innerWidth > 870 ?
+                            '1fr 1fr 1fr' :
+                            '1fr' :
+                        window.innerWidth > 870 ?
+                            '1fr 1fr 1fr 1fr' :
+                            '1fr 1fr'
+                }}
                 className='product-grid'>
                 {error ? "Something went wrong" :
                     (loading ? <div className="custom-loader" /> :
