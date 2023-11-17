@@ -14,7 +14,7 @@ function Clothing() {
 
     const categoryId = useParams().id
 
-    const [gridTemplateMinWidth, setGridTemplateMinWidth] = useState(window.innerWidth > 870)
+    const [gridTemplateMinWidth, setGridTemplateMinWidth] = useState(window.innerWidth > 750)
     console.log(gridTemplateMinWidth)
 
     //Filter Panel Selected arrays
@@ -48,7 +48,7 @@ function Clothing() {
 
     useEffect(() => {
         function handleResize() {
-            setGridTemplateMinWidth(window.innerWidth > 870)
+            setGridTemplateMinWidth(window.innerWidth > 750)
         }
         window.addEventListener('resize', handleResize)
 
@@ -191,7 +191,7 @@ function Clothing() {
                             <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
                             <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
                             {
-                                window.innerWidth > 870 ?
+                                gridTemplateMinWidth ?
                                     <>
                                         <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
                                         <span className={`grid-block ${categoryGrid === 'small' ? 'block-selected' : ''}`} />
@@ -204,7 +204,7 @@ function Clothing() {
                             className="category-grid-toggle">
                             <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
                             {
-                                window.innerWidth > 870 ?
+                                gridTemplateMinWidth ?
                                     <>
                                         <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
                                         <span className={`grid-block ${categoryGrid === 'large' ? 'block-selected' : ''}`} />
@@ -316,10 +316,10 @@ function Clothing() {
             <div
                 style={{
                     gridTemplateColumns: categoryGrid === 'large' ?
-                        window.innerWidth > 870 ?
+                        gridTemplateMinWidth ?
                             '1fr 1fr 1fr' :
                             '1fr' :
-                        window.innerWidth > 870 ?
+                        gridTemplateMinWidth ?
                             '1fr 1fr 1fr 1fr' :
                             '1fr 1fr'
                 }}
