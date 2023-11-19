@@ -110,7 +110,17 @@ button.filter-item__remove {
     font-size: 0.9rem;
 }
 
-
+@media screen and (max-width: 750px) {
+    .form-check {
+        z-index: 200;
+        position: relative;
+        top: 0;
+        border-top: 1px solid #fff;
+    }
+    .filter-panel, .filter-panel_button {
+        max-width: none;
+    }
+}
 
 
 .css-checkbox-regular,

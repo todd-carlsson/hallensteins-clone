@@ -73,7 +73,7 @@ span.product-colors-available {
     font-weight: 500;
 }
 
-.product-about p {
+.product-about, .product-about p {
     margin: 2rem 0;
 }
 

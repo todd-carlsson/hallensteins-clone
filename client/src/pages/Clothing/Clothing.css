@@ -16,6 +16,12 @@ section.products {
     margin: 2rem 0;
 }
 
+@media screen and (max-width: 750px) {
+    .filter-grid {
+        flex-wrap: wrap;
+    }
+}
+
 
 
 .category-refine {
