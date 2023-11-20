@@ -37,6 +37,26 @@ function ProductSlider(props) {
                             <img src={props.mainImageSrc} alt="" />
                         </div>
                     </Link>
+                    {/* Sizes Available Hover */}
+                    {
+                        hovered && window.innerWidth > 1250 &&
+                        <motion.div
+                            animate={{ opacity: 1 }}
+                            initial={{ opacity: 0 }}
+                            className="product-sizes">
+                            {sizes.map((item) => {
+                                if (props.sizesAvailable[item]) {
+                                    return <button
+                                        key={item}
+                                        onClick={() => { setTimeout(() => closeCart(), 400), addToCart({ ...props.product, size: getSizeNumber(item).toString(), qty: 1 }) }}
+                                        className='product-sizes__item'>{getSizeNumber(item)}</button>
+                                }
+                                else {
+                                    return <button key={item} disabled className='product-sizes__item item-disabled'>{getSizeNumber(item)}</button>
+                                }
+                            })}
+                        </motion.div>
+                    }
                 </SwiperSlide>
                 {props.allowTouchMove && props.images.map((item, i) => (
 
@@ -54,28 +74,7 @@ function ProductSlider(props) {
                 ))}
 
 
-                {/* Sizes Available Hover */}
-                {
-                    hovered && window.innerWidth > 1250 &&
-                    <motion.div
-                        animate={{ opacity: 1 }}
-                        initial={{ opacity: 0 }}
-                        onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}
-                        className="product-sizes">
-                        {sizes.map((item) => {
-                            if (props.sizesAvailable[item]) {
-                                return <button
-                                    key={item}
-                                    onClick={() => { setTimeout(() => closeCart(), 400), addToCart({ ...props.product, size: getSizeNumber(item).toString(), qty: 1 }) }}
-                                    className='product-sizes__item'>{getSizeNumber(item)}</button>
-                            }
-                            else {
-                                return <button key={item} disabled className='product-sizes__item item-disabled'>{getSizeNumber(item)}</button>
-                            }
-                        })}
-                    </motion.div>
-                }
+
 
 
                 {/* Product Details */}
@@ -97,11 +96,11 @@ function ProductSlider(props) {
                             NZD {props.price.toLocaleString("en-NZ", { style: "currency", currency: "NZD" })}
                         </h4>
                     }
-                    {colorsAvailable[createColorsAvailableUrl(props.url)] > 1 && 
-                    <div className="product-colors-label">{colorsAvailable[createColorsAvailableUrl(props.url)]} Colors Available</div>}
+                    {colorsAvailable[createColorsAvailableUrl(props.url)] > 1 &&
+                        <div className="product-colors-label">{colorsAvailable[createColorsAvailableUrl(props.url)]} Colors Available</div>}
                 </div>
 
-                
+
 
             </Swiper>
         </div>
