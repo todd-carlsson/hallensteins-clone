@@ -2,8 +2,7 @@
     width: 100%;
     cursor: pointer;
     overflow: hidden;
-    position: relative;
-    margin: auto auto 2.7rem;
+    margin-bottom: 2.7rem;
 }
 
 .product-card img {
@@ -30,7 +29,7 @@
     width: 90%;
     background-color: #fff;
     position: absolute;
-    bottom: 175px;
+    bottom: 135px;
     z-index: 10;
     padding: 15px 0;
     box-shadow: 10px 8px 15px 10px rgba(0, 0, 0, 0.2);
@@ -72,7 +71,7 @@
 
 
 .product-details {
-    height: 120px;
+    height: fit-content;
     cursor: auto;
 }
 
