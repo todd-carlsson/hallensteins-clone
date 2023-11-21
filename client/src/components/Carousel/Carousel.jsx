@@ -8,7 +8,6 @@ import { v4 as uuidv4 } from 'uuid'
 import 'swiper/css'
 import 'swiper/css/navigation';
 import './Carousel.css'
-import useFetch from '../../hooks/useFetch'
 
 function Carousel() {
 
@@ -32,8 +31,6 @@ function Carousel() {
             btnColor: '#FDED18'
         }
     ]
-
-    // const {data, loading, error} = useFetch('/sliders?populate=*')
 
     const sliderStyles = {
         border: `2px solid ${data[slide].btnColor}`

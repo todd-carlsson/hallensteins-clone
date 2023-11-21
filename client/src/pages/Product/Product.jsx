@@ -9,9 +9,11 @@ import useFetch from '../../hooks/useFetch'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { BiSolidCheckCircle } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
-import { generateTag, createColorsAvailableUrl, findColor } from '../../utils/customFunctions'
+import { createColorsAvailableUrl, findColor } from '../../utils/customFunctions'
+import ProductImages from '../../components/ProductImages/ProductImages'
 import ProductCarousel from '../../components/ProductCarousel/ProductCarousel'
 import './Product.css'
+
 
 
 
@@ -113,27 +115,7 @@ function Product() {
 
                             <div className="product-container_left">
 
-                                {generateTag(data?.[index]?.attributes.price, data?.[index]?.attributes.salePrice, data?.[index]?.attributes.tag)}
-                                <img
-                                    className='product-image'
-                                    style={{ width: '100%' }}
-                                    src={`${import.meta.env.VITE_APP_UPLOAD_URL}${data?.[index]?.attributes.mainImage.data.attributes.formats.large.url}`}
-                                    alt="" />
-                                {data?.[index]?.attributes.images?.data.map((image, i) => {
-                                    if (data?.[index]?.attributes.images?.data.length % 2 === 1 && i === 2) {
-                                        return <img
-                                            key={image.id}
-                                            className='product-image'
-                                            style={{ width: '100%' }}
-                                            src={`${import.meta.env.VITE_APP_UPLOAD_URL}${image.attributes.formats.large.url}`} alt="" />
-                                    }
-                                    else return <img
-                                        key={image.id}
-                                        className='product-image'
-                                        src={`${import.meta.env.VITE_APP_UPLOAD_URL}${image.attributes.formats.large.url}`} alt="" />
-                                }
-                                )}
-
+                                <ProductImages data={data} index={index} />
                             </div>
 
                             <div className="product-container_right">
