@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import ReactDOM from 'react-dom'
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import { Context } from '../../Context'
@@ -45,7 +46,7 @@ function Cart() {
     let totalItems = 0
     cartItems.map(item => totalItems += item.qty)
 
-    return (
+    return ReactDOM.createPortal(
         <>
             <motion.div
                 className="opac-layer"
@@ -112,7 +113,8 @@ function Cart() {
 
 
             </motion.div>
-        </>
+        </>,
+        document.getElementById('shopping-cart-root')
     )
 }
 
